@@ -9,21 +9,21 @@ from emoclass.config import MODELS_DIR, PROCESSED_DATA_DIR
 app = typer.Typer()
 
 
+
 @app.command()
 def main(
-    # ---- REPLACE DEFAULT PATHS AS APPROPRIATE ----
-    features_path: Path = PROCESSED_DATA_DIR / "features.csv",
-    labels_path: Path = PROCESSED_DATA_DIR / "labels.csv",
-    model_path: Path = MODELS_DIR / "model.pkl",
-    # -----------------------------------------
+    train_dataset_path: Path = PROCESSED_DATA_DIR / "train/",
+    test_dataset_path: Path = PROCESSED_DATA_DIR / "test/",
+    valid_dataset_path: Path = PROCESSED_DATA_DIR / "valid/",
 ):
-    # ---- REPLACE THIS WITH YOUR OWN CODE ----
-    logger.info("Training some model...")
-    for i in tqdm(range(10), total=10):
-        if i == 5:
-            logger.info("Something happened for iteration 5.")
-    logger.success("Modeling training complete.")
-    # -----------------------------------------
+
+    # Model start info
+    logger.info("Model training starts")
+    logger.info("train/test/val directory pathes")
+    logger.info(train_dataset_path)
+    logger.info(test_dataset_path)
+    logger.info(valid_dataset_path)
+
 
 
 if __name__ == "__main__":
